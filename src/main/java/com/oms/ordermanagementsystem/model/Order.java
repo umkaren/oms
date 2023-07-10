@@ -1,10 +1,8 @@
 package com.oms.ordermanagementsystem.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.*;
 import lombok.Data;
-import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 
@@ -26,5 +24,12 @@ public class Order {
 
     @Positive(message = "Total cannot be negative")
     private double total;
+
+    public Order(String customerName, LocalDate orderDate, String shippingAddress, double total) {
+        this.customerName = customerName;
+        this.orderDate = orderDate;
+        this.shippingAddress = shippingAddress;
+        this.total = total;
+    }
 
 }
